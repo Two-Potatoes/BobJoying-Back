@@ -36,9 +36,9 @@ public class Member extends Timestamped {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // User 모델을 가져올 때 Group 모델은 프록시로 가져옵니다. 필요시 EAGER 옵션으로 변경합니다.
+    // Member 모델을 가져올 때 Team 모델은 프록시로 가져옵니다. 필요시 EAGER 옵션으로 변경합니다.
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "teamId")       // user 모델에서 group_id로 column 명이 지정됩니다.
+    @JoinColumn(name = "teamId")       // member 테이블에서 team_id로 column 명이 지정됩니다.
     private Team team;
 
     @Column(nullable = false, unique = true)
@@ -56,7 +56,7 @@ public class Member extends Timestamped {
     @Column(nullable = false, length = 50)
     private UserRoleEnum role;
 
-    // mappedBy = "user": MyIngredient Entity에서의 User 객체명과 맵핑시켜줍니다.
+    // mappedBy = "member": MyIngredient Entity에서의 Member 객체명과 맵핑시켜줍니다.
     // cascade = CascadeType.REMOVE: 부모 Entity 삭제시, 자식 Entity도 삭제됩니다.
     // orphanRemoval = true 도 같은 기능을 하지만 cascade 옵션의 경우 부모 엔티티에서 자식 엔티티를 삭제할 경우 자식 엔티티가
     // 그대로 남아있는 반면, 고아 삭제 옵션은 자식 엔티티를 제거합니다.
