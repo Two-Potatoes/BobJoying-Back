@@ -1,5 +1,7 @@
 package com.twoPotatoes.bobJoying.recipe.entity;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import com.twoPotatoes.bobJoying.ingredient.entity.Ingredient;
 
 import jakarta.persistence.Column;
@@ -40,6 +42,7 @@ public class RecipeIngredient {
     private String unit;
 
     @Column(nullable = false)
+    @ColumnDefault("true")
     @Builder.Default
     private Boolean isMainIngredient = true;
 
