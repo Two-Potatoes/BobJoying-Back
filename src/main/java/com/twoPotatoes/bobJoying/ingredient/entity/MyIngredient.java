@@ -2,7 +2,7 @@ package com.twoPotatoes.bobJoying.ingredient.entity;
 
 import java.time.LocalDate;
 
-import com.twoPotatoes.bobJoying.user.entity.Member;
+import com.twoPotatoes.bobJoying.member.entity.Member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

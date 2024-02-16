@@ -1,7 +1,7 @@
 package com.twoPotatoes.bobJoying.foodRequest.entity;
 
 import com.twoPotatoes.bobJoying.recipe.entity.Recipe;
-import com.twoPotatoes.bobJoying.user.entity.Member;
+import com.twoPotatoes.bobJoying.member.entity.Member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

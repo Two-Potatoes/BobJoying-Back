@@ -1,4 +1,4 @@
-package com.twoPotatoes.bobJoying.user.entity;
+package com.twoPotatoes.bobJoying.member.entity;
 
 import java.util.ArrayList;
 import java.util.List;

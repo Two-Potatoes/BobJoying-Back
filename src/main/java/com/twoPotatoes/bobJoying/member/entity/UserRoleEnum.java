@@ -1,4 +1,4 @@
-package com.twoPotatoes.bobJoying.user.entity;
+package com.twoPotatoes.bobJoying.member.entity;
 
 public enum UserRoleEnum {
     // 따로 "ROLE_"을 앞에 붙인 값을 저장해 주는 이유는

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.twoPotatoes.bobJoying.foodRequest.entity.FoodRequest;
-import com.twoPotatoes.bobJoying.user.entity.Member;
+import com.twoPotatoes.bobJoying.member.entity.Member;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
