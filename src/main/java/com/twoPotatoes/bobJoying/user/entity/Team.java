@@ -21,15 +21,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Group extends Timestamped {
+public class Team extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false, length = 100)
     private String name;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "team")
     @Builder.Default
-    private List<User> userList = new ArrayList<>();
+    private List<Member> memberList = new ArrayList<>();
 }

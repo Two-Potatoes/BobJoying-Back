@@ -31,15 +31,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends Timestamped {
+public class Member extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     // User 모델을 가져올 때 Group 모델은 프록시로 가져옵니다. 필요시 EAGER 옵션으로 변경합니다.
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "groupId")       // user 모델에서 group_id로 column 명이 지정됩니다.
-    private Group group;
+    @JoinColumn(name = "teamId")       // user 모델에서 group_id로 column 명이 지정됩니다.
+    private Team team;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -60,21 +60,21 @@ public class User extends Timestamped {
     // cascade = CascadeType.REMOVE: 부모 Entity 삭제시, 자식 Entity도 삭제됩니다.
     // orphanRemoval = true 도 같은 기능을 하지만 cascade 옵션의 경우 부모 엔티티에서 자식 엔티티를 삭제할 경우 자식 엔티티가
     // 그대로 남아있는 반면, 고아 삭제 옵션은 자식 엔티티를 제거합니다.
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     // 이 옵션을 사용하지 않으면 컬렉션 필드를 초기화하지 않을 수 있어 NullPointerException 예외가 발생할 수 있습니다.
     @Builder.Default
     private List<MyIngredient> myIngredientList = new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<FoodRequest> foodRequestList = new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Recipe> recipeList = new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<MealRecord> mealRecordList = new ArrayList<>();
 
 }
