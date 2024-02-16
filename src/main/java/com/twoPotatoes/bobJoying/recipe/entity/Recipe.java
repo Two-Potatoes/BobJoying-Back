@@ -41,7 +41,7 @@ public class Recipe {
     @Column(columnDefinition = "TEXT")
     private String recipe;
 
-    private Integer calorie;
+    private Short calorie;
 
     @Builder.Default
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.REMOVE)
