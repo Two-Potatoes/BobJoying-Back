@@ -47,13 +47,13 @@ public class User extends Timestamped {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nickname;
 
     // EnumType을 String으로 DB에 저장합니다.(ex. 'USER', 'ADMIN')
     // EnumType.ORDINAL로 설정하면 EnumType의 순서를 저장합니다. (ex. 1(1번째 Enum), 2(2번째 Enum))
     @Enumerated(value = EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private UserRoleEnum role;
 
     // mappedBy = "user": MyIngredient Entity에서의 User 객체명과 맵핑시켜줍니다.
