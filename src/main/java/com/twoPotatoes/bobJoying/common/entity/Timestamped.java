@@ -1,6 +1,6 @@
 package com.twoPotatoes.bobJoying.common.entity;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -17,7 +17,7 @@ import lombok.Getter;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class Timestamped {
 
-    @CreatedDate                         // 생성 일자를 관리하는 필드에 현재 날짜를 주입하는 작업을 수행
+    @CreatedDate()                         // 생성 일자를 관리하는 필드에 현재 날짜를 주입하는 작업을 수행
     @Column(updatable = false)           // 생성일자에 대한 필드이므로 수정 불가
-    private LocalDateTime createdAt;
+    private ZonedDateTime createdAt;
 }
