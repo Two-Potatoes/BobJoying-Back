@@ -1,7 +1,7 @@
 package com.twoPotatoes.bobJoying.foodRequest.entity;
 
 import com.twoPotatoes.bobJoying.recipe.entity.Recipe;
-import com.twoPotatoes.bobJoying.user.entity.User;
+import com.twoPotatoes.bobJoying.user.entity.Member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,11 +26,11 @@ import lombok.NoArgsConstructor;
 public class FoodRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private User user;
+    @JoinColumn(name = "memberId")
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "recipeId")

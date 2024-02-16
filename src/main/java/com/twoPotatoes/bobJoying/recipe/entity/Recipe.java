@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.twoPotatoes.bobJoying.foodRequest.entity.FoodRequest;
-import com.twoPotatoes.bobJoying.user.entity.User;
+import com.twoPotatoes.bobJoying.user.entity.Member;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,11 +29,11 @@ import lombok.NoArgsConstructor;
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private User user;
+    @JoinColumn(name = "memberId")
+    private Member member;
 
     @Column(nullable = false)
     private String name;
