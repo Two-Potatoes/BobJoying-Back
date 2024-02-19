@@ -11,7 +11,7 @@ assignees: JisooPyo
 [docs] README ~~내용 추가
 [feature] 회원가입
 제목 헤더에는 다음이 들어갈 수 있습니다.
-[init], [feature], [hotfix], [docs], [refactor], [ci], [perf] -->
+[init], [feature], [hotfix], [docs], [refactor], [CI], [perf] -->
 
 ## Issue
 
