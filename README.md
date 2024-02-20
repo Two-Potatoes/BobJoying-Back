@@ -2,7 +2,7 @@
 
 # 🍚 밥조잉 🍚
 
-### 🙏 우리 집 냉장고를 부탁해
+### 🥗 내 손 안에 냉장고
 
 프로젝트 기간 : 2024/01/31 ~
 
@@ -12,6 +12,8 @@
 2. 냉장고의 식재료로 할 수 있는 **레시피를 등록하고 관리**할 수 있어요!
 3. 냉장고를 공유하는 그룹원에게 먹고 싶은 **레시피를 요청**할 수 있어요!
 4. **식사 기록**이 가능하고 그룹원들의 오늘 식사 기록을 **피드**에서 확인할 수 있어요!
+
+<img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/8c5fadcd-acc6-4031-bc3a-b5711cabf110" width="400px">
 
 ### [📚 밥조잉 Notion 보러 가기](https://two-potatoes.notion.site/BobJoying-ed09d53973684322a47bef4abfafa8e3?pvs=4)
 
@@ -56,11 +58,11 @@
 
 <br>
 
-* CI에서 build와 test code를 check하고 PR에 코멘트를 남겨요!
+* CI에서 `build`와 `test code`를 check하고 PR에 `코멘트`를 남겨요!
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/e771f023-b2e9-4ea0-ae43-c8035231c0bf">
 
-* PR 결과에 대해 슬랙 채널에 알림이 와요!
+* PR 결과에 대해 `슬랙` 채널에 알림이 와요!
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/cfc73a71-feb2-4ea2-afc0-3a80e94032e0">
 
@@ -73,11 +75,11 @@
 
 <br>
 
-* 개발과 관련된 할 일들은 생각나는 대로 Backlog에 쌓아요
+* 개발과 관련된 할 일들은 생각나는 대로 `Backlog`에 쌓아요!
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/869a3eb6-a179-4db0-b70e-4f0296891e83">
 
-* Backlog에 있는 작업 중 우선적으로 해야 할 일을 스프린트에 커밋한 후 작업해요
+* Backlog에 있는 작업 중 우선적으로 해야 할 일을 `스프린트`에 커밋한 후 작업해요!
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/22a18fe2-ec94-4fe9-ac87-231fefc531eb">
 
