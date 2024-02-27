@@ -8,6 +8,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
+// JPAQueryFactory를 사용하기 위해 Bean으로 등록
 @Configuration
 public class QueryDslConfig {
 
