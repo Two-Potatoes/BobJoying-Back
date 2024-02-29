@@ -81,7 +81,7 @@ jobs:
           custom_payload: |
             {
               attachments: [{
-                text: 'Github Action Build 결과입니다',
+                text: `Github Action Build 결과입니다`,
               }]
             }
         env:

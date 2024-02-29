@@ -47,7 +47,7 @@ jobs:
           custom_payload: |
             {
               attachments: [{
-                text: 'Docker CI 결과입니다',
+                text: `Docker CI 결과입니다`,
               }]
             }
         env:
