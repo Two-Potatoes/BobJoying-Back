@@ -1,0 +1,42 @@
+name: develop CI check on docker
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+permissions:
+  checks: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: 환경변수 설정
+        run: |
+          touch ./.env
+          echo "${{ secrets.DOCKER_COMPOSE_ENV }}" > ./.env
+        shell: bash
+
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          docker --version
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get install -y docker-compose
+          docker-compose --version
+
+      - name: Build and run Docker containers
+        run: |
+          docker-compose up -d
