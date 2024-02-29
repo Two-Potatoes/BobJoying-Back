@@ -82,7 +82,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `Github Action Build 결과입니다`,
+                text: `Github Action Build 결과입니다\n 결과 : ${{ job.status }}\n repo: ${process.env.AS_REPO}\n author: ${process.env.AS_AUTHOR}\n PR: ${process.env.AS_PULL_REQUEST}`,
               }]
             }
         env:

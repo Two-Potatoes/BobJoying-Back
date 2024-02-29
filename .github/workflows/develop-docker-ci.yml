@@ -22,19 +22,6 @@ jobs:
           echo "${{ secrets.DOCKER_COMPOSE_ENV }}" > ./.env
         shell: bash
 
-      - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-          sudo systemctl start docker
-          sudo systemctl enable docker
-          docker --version
-
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get install -y docker-compose
-          docker-compose --version
-
       - name: Build and run Docker containers
         run: |
           docker-compose up -d
@@ -48,7 +35,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `Docker CI 결과입니다`,
+                text: ` Docker CI 결과입니다\n 결과 : ${{ job.status }}\n repo: ${process.env.AS_REPO}\n author: ${process.env.AS_AUTHOR}\n PR: ${process.env.AS_PULL_REQUEST}`,
               }]
             }
         env:
