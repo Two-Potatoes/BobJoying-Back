@@ -8,6 +8,9 @@ permissions:
   checks: write
   pull-requests: write
 
+env:
+  SPRING_DOCKER_IMAGE: bobJoyingImage:latest
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,6 +24,28 @@ jobs:
           touch ./.env
           echo "${{ secrets.DOCKER_COMPOSE_ENV }}" > ./.env
         shell: bash
+
+      - name: JDK 17 설치
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      # gradle 실행 허가
+      - name: Run chmod to make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Build Docker image
+        run: docker build . -t bobJoyingImage:latest
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Push Docker image to Docker Hub
+        run: docker push bobJoyingImage:latest
 
       - name: Build and run Docker containers
         run: |
