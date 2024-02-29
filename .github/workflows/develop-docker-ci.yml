@@ -42,11 +42,12 @@ jobs:
       - name: 빌드 결과 Slack으로 알림
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
+          status: custom
           fields: author,pullRequest # selectable (default: repo,message)
           custom_payload: |
             {
               attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
                 text: `Docker CI 결과입니다`,
               }]
             }
