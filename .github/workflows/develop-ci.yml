@@ -8,8 +8,6 @@
 name: develop CI check
 
 on:
-  push:
-    branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
 
@@ -79,7 +77,13 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          fields: author,action,took,pullRequest # selectable (default: repo,message)
+          fields: author,pullRequest # selectable (default: repo,message)
+          custom_payload: |
+            {
+              attachments: [{
+                text: 'Github Action Build 결과입니다',
+              }]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: always() # Pick up events even if the job fails or is canceled.
