@@ -16,9 +16,10 @@ services:
     container_name: bobjoying_app
     depends_on:
       - postgres
-    build:
-      context: .
-      dockerfile: Dockerfile
+    #    build:
+    #      context: .
+    #      dockerfile: Dockerfile
+    image: ${SPRING_DOCKER_IMAGE}
     ports:
       - "8080:8080"
     environment:
