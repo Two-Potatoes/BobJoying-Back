@@ -19,6 +19,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: PostgreSQL 설치
+        uses: harmon758/postgresql-action@v1
+        with:
+          postgresql version: '16'
+          postgresql db: 'bobjoying'
+          postgresql user: 'postgres'
+          postgresql password: '1234'
+
       - name: 환경변수 설정
         run: |
           touch ./.env
