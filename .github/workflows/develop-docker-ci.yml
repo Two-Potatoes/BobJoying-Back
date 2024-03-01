@@ -25,6 +25,15 @@ jobs:
           echo "${{ secrets.DOCKER_COMPOSE_ENV }}" > ./.env
         shell: bash
 
+      - name: properties 파일 생성
+        run: |
+          cd ./src/main
+          mkdir resources
+          cd resources
+          touch ./application.properties
+          echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./application.properties
+        shell: bash
+
       - name: JDK 17 설치
         uses: actions/setup-java@v3
         with:
