@@ -38,14 +38,18 @@
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=spring&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=flat-square&logo=springsecurity&logoColor=white">&nbsp;
-<img src="https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=gradle&logoColor=white">&nbsp;
-
-<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white">&nbsp;
-<img src="https://img.shields.io/badge/GitHub Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white">&nbsp;
 
+<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white">&nbsp;
+<img src="https://img.shields.io/badge/Querydsl-3E87D0?style=flat-square&logo=querydsl&logoColor=white">&nbsp;
+<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white">&nbsp;
+<img src="https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=gradle&logoColor=white">&nbsp;
+
+<img src="https://img.shields.io/badge/GitHub Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=notion&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/Slack-4A154B?style=flat-square&logo=slack&logoColor=white">&nbsp;
+<img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white">&nbsp;
+<img src="https://img.shields.io/badge/pgAdmin4-336791?style=flat-square&logo=pgadmin&logoColor=white">&nbsp;
 
 <br>
 
@@ -54,7 +58,7 @@
 ###### 토글을 누르면 해당 내용을 확인할 수 있습니다.
 
 <details>
-<summary> 1. PR을 올리면 CI에서 build와 test code를 check를 하고 그 결과를 슬랙으로 알려줘요!</summary>
+<summary> 1. PR을 올리면 CI에서 test code를 check하고 프로젝트를 도커에서 build해본 후 그 결과를 슬랙으로 알려줘요!</summary>
 
 <br>
 
@@ -62,7 +66,13 @@
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/e771f023-b2e9-4ea0-ae43-c8035231c0bf">
 
-* PR 결과에 대해 `슬랙` 채널에 알림이 와요!
+* 프로젝트 이미지를 생성한 후 도커 허브에 푸시해요!
+
+[//]: # (도커 허브 푸시 이미지 올리기)
+
+* PR 결과에 대해 `슬랙` 채널에 우리가 커스텀된 알림이 와요!
+
+[//]: # (슬랙 알림 이미지 변경)
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/cfc73a71-feb2-4ea2-afc0-3a80e94032e0">
 
