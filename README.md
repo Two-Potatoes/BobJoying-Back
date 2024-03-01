@@ -100,6 +100,16 @@
 
 <br>
 
+## Docker Compose
+
+`application.properties`, `docker compose script` 환경변수(`.env`) 설정 후 다음 명령어로 컨테이너에서 프로젝트를 build해볼 수 있어요!
+
+```shell
+docker-compose -f docker-compose-ci.yml up -d
+```
+
+<br>
+
 ## 👭 우리 팀은요
 
 ### Team 감자두리 🥔🥔
