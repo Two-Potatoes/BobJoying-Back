@@ -1,4 +1,4 @@
-[![develop CI check](https://github.com/Two-Potatoes/BobJoying-Back/actions/workflows/develop-ci.yml/badge.svg?branch=develop)](https://github.com/Two-Potatoes/BobJoying-Back/actions/workflows/develop-ci.yml)
+[![develop build check and CI check on docker](https://github.com/Two-Potatoes/BobJoying-Back/actions/workflows/develop-ci.yml/badge.svg)](https://github.com/Two-Potatoes/BobJoying-Back/actions/workflows/develop-ci.yml)
 
 # 🍚 밥조잉 🍚
 
