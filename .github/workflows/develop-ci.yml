@@ -17,8 +17,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
+      # Runner에서 프로젝트 build, test code 실행시 필요한 DB 설치
       - name: PostgreSQL 설치
         uses: harmon758/postgresql-action@v1
         with:
@@ -27,12 +28,14 @@ jobs:
           postgresql user: 'postgres'
           postgresql password: '1234'
 
+      # docker-compose.yml에서 필요한 환경변수 설정
       - name: 환경변수 설정
         run: |
           touch ./.env
           echo "${{ secrets.DOCKER_COMPOSE_ENV }}" > ./.env
         shell: bash
 
+      # Runner에서 프로젝트 build 시 필요한 application.properties 생성
       - name: properties 파일 생성
         run: |
           cd ./src/main
@@ -69,18 +72,22 @@ jobs:
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
 
+      # 프로젝트 Dockerfile 이용하여 도커 이미지 생성
       - name: Build Docker image
         run: docker build . -t "$SPRING_DOCKER_IMAGE"
 
+      # 도커 허브에 로그인
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      # 도커 허브에 이미지 푸시
       - name: Push Docker image to Docker Hub
         run: docker push "$SPRING_DOCKER_IMAGE"
 
+      # docker-compose 이용하여 도커 컨테이너에서 프로젝트 build & run
       - name: Build and run Docker containers
         run: |
           docker-compose up -d
