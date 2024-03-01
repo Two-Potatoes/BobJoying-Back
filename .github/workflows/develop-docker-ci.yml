@@ -9,7 +9,7 @@ permissions:
   pull-requests: write
 
 env:
-  SPRING_DOCKER_IMAGE: bobjoying_image:latest
+  SPRING_DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/bobjoying_image:latest
 
 jobs:
   build:
@@ -56,13 +56,16 @@ jobs:
         run: ./gradlew build
 
       - name: Build Docker image
-        run: docker build . -t bobjoying_image:latest
+        run: docker build . -t "$SPRING_DOCKER_IMAGE"
 
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker image to Docker Hub
-        run: docker push "${{ secrets.DOCKERHUB_USERNAME }}"/bobjoying_image:latest
+        run: docker push "$SPRING_DOCKER_IMAGE"
 
       - name: Build and run Docker containers
         run: |
