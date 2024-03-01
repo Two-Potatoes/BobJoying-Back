@@ -66,15 +66,14 @@
 
 <img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/e771f023-b2e9-4ea0-ae43-c8035231c0bf">
 
-* 프로젝트 이미지를 생성한 후 도커 허브에 푸시해요!
+* 도커에서 프로젝트를 build test 해봐요!
 
-[//]: # (도커 허브 푸시 이미지 올리기)
+<img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/0a8517dc-2e4f-4609-ab94-f6d16ef8f538">
 
 * PR 결과에 대해 `슬랙` 채널에 우리가 커스텀된 알림이 와요!
 
-[//]: # (슬랙 알림 이미지 변경)
-
-<img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/cfc73a71-feb2-4ea2-afc0-3a80e94032e0">
+<img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/bc3db56a-f22c-47f6-9398-a64e90337a67">
+<img src="https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/e7540b39-1924-42fe-83ef-e23963bc3446">
 
 ---
 
