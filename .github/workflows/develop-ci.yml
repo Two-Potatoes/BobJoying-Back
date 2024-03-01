@@ -1,11 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
-
-name: develop CI check
+name: develop build check and CI check on docker
 
 on:
   pull_request:
@@ -15,21 +8,16 @@ permissions:
   checks: write
   pull-requests: write
 
+env:
+  SPRING_DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/bobjoying_image:latest
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: 레포지토리 체크아웃
-        uses: actions/checkout@v3
-
-      - name: JDK 17 설치
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'adopt'
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: PostgreSQL 설치
         uses: harmon758/postgresql-action@v1
@@ -38,6 +26,12 @@ jobs:
           postgresql db: 'bobjoying'
           postgresql user: 'postgres'
           postgresql password: '1234'
+
+      - name: 환경변수 설정
+        run: |
+          touch ./.env
+          echo "${{ secrets.DOCKER_COMPOSE_ENV }}" > ./.env
+        shell: bash
 
       - name: properties 파일 생성
         run: |
@@ -48,16 +42,18 @@ jobs:
           echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./application.properties
         shell: bash
 
+      - name: JDK 17 설치
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
       # gradle 실행 허가
       - name: Run chmod to make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: 어플리케이션 실행 테스트(테스트 코드X)
-        run: ./gradlew clean build --exclude-task test
-
-      # build Test
-      - name: 테스트 코드 실행
-        run: ./gradlew --info test
+      - name: Build with Gradle
+        run: ./gradlew build
 
       - name: 테스트 결과 PR에 코멘트 작성
         uses: EnricoMi/publish-unit-test-result-action@v2
@@ -73,6 +69,22 @@ jobs:
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
 
+      - name: Build Docker image
+        run: docker build . -t "$SPRING_DOCKER_IMAGE"
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker image to Docker Hub
+        run: docker push "$SPRING_DOCKER_IMAGE"
+
+      - name: Build and run Docker containers
+        run: |
+          docker-compose up -d
+
       - name: 빌드 결과 Slack으로 알림
         uses: 8398a7/action-slack@v3
         with:
@@ -82,7 +94,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `Github Action Build 결과입니다\n 결과 : ${{ job.status }}\n repo: ${process.env.AS_REPO}\n author: ${process.env.AS_AUTHOR}\n PR: ${process.env.AS_PULL_REQUEST}`,
+                text: ` Github Action CI 결과입니다\n 결과 : ${{ job.status }}\n repo: ${process.env.AS_REPO}\n author: ${process.env.AS_AUTHOR}\n PR: ${process.env.AS_PULL_REQUEST}`,
               }]
             }
         env:
