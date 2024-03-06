@@ -25,7 +25,7 @@ public class SlackReviewSubmit {
     private String generateText() {
         StringBuilder sb = new StringBuilder();
         String prWriter = githubIdSlackNick.get(System.getenv("PR_WRITER"));
-        String reviewer = githubIdSlackNick.get(System.getenv("PR_REVIEWER"));
+        String reviewer = System.getenv("PR_REVIEWER");
         String prUrl = System.getenv("PR_URL");
 
         sb.append("\"text\": \"<@");
