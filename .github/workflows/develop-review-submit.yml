@@ -1,0 +1,23 @@
+name: CI on PR review submit
+
+on:
+  pull_request_review:
+    branches: [ "develop" ]
+    types: [ submitted ]
+
+env:
+  PR_WRITER: ${{ github.event.pull_request.user.login }}
+  PR_URL: ${{ github.event.pull_request.html_url }}
+  PR_REVIEWER: ${{ github.event.review.user.login }}
+  SLACK_REVIEW_WEBHOOK_URL: ${{ secrets.SLACK_REVIEW_WEBHOOK_URL }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Slack Notification
+        run: java ./src/main/java/com/twoPotatoes/bobJoying/SlackReviewSubmit.java
