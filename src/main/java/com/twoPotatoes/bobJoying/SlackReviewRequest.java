@@ -7,24 +7,24 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * <슬랙에 보내는 메시지 형태>
+ * <슬랙에 보내는 payload 형태>
  *
  * {
- *      "attachments":
- *      [
- *            {
- * 			    "mrkdwn_in": ["pretext","value"],
- * 			    "color": "#FFFF00",
- * 			    "pretext": "@SLACK_ID 님! PR 리뷰 요청합니다! 🙋‍♀️\n\n:arrow_down: 리뷰하러 가기 :arrow_down:",
- * 			    "fields":
- * 			    [
- *                  {
- * 					"title": "Pull Request",
- * 					"value": "<PR_URL|PR_TITLE>"
- *                  }
- * 			    ]
- *          }
- * 	    ]
+ *   "attachments":
+ *   [
+ *     {
+ *       "mrkdwn_in": ["pretext","value"],
+ *       "color": "#FFFF00",
+ *       "pretext": "@SLACK_ID 님! PR 리뷰 요청합니다! 🙋‍♀️\n\n:arrow_down: 리뷰하러 가기 :arrow_down:",
+ *       "fields":
+ *       [
+ *         {
+ *           "title": "Pull Request",
+ *           "value": "<PR_URL|PR_TITLE>"
+ *         }
+ *       ]
+ *     }
+ *   ]
  * }
  */
 

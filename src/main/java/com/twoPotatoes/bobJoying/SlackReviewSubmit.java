@@ -6,6 +6,21 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
+/**
+ * <슬랙에 보내는 payload 형태>
+ * {
+ *   "attachments":
+ *   [
+ *     {
+ *       "mrkdwn_in": ["text"],
+ *       "color": "#238636",
+ *       "text": "@SLACK_ID 님의 PR에 {리뷰단사람} 님이 리뷰를 달아주셨어요!\n
+ *                리뷰 확인하기 :arrow_right: : <PR_URL|PR 링크>"
+ *     }
+ *   ]
+ * }
+ */
+
 public class SlackReviewSubmit {
     // 깃허브 ID와 슬랙 ID를 맵핑합니다.
     private Map<String, String> githubIdSlackNick =
