@@ -6,7 +6,7 @@ on:
     types: [ "review_requested" ]
 
 env:
-  PR_URL: ${{ github.event.pull_request.url }}
+  PR_URL: ${{ github.event.pull_request.html_url }}
   PR_TITLE: ${{ github.event.pull_request.title }}
   PR_REVIEWER: ${{ github.event.requested_reviewer.login }}
   SLACK_REVIEW_WEBHOOK_URL: ${{ secrets.SLACK_REVIEW_WEBHOOK_URL }}
