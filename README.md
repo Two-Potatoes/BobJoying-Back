@@ -58,7 +58,7 @@
 ###### 토글을 누르면 해당 내용을 확인할 수 있습니다.
 
 <details>
-<summary> 1. PR을 올리면 CI에서 test code를 check하고 프로젝트를 도커에서 build해본 후 그 결과를 슬랙으로 알려줘요!</summary>
+<summary> 1. 🐳 PR을 올리면 CI에서 test code를 check하고 프로젝트를 도커에서 build해본 후 그 결과를 슬랙으로 알려줘요!</summary>
 
 <br>
 
@@ -80,7 +80,7 @@
 </details>
 
 <details>
-<summary> 2. Backlog와 스프린트를 이용하여 협업과 작업의 효율을 높였어요!</summary>
+<summary> 2. 🤝 Backlog와 스프린트를 이용하여 협업과 작업의 효율을 높였어요!</summary>
 
 <br>
 
@@ -96,11 +96,40 @@
 
 </details>
 
+<details>
+<summary> 3. 🔔 Pull Request에서 리뷰 요청, 리뷰 제출 시 슬랙으로 알림이 오도록 했어요!</summary>
+
+* `Pull Request`에서 <u>**리뷰어를 할당**</u>하면 슬랙으로 메시지가 와요!
+
+리뷰어가 할당되면~
+
+![image](https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/200a6789-f750-4227-90b1-f2e938d610ba)
+
+슬랙에서 리뷰어를 멘션하고 `PR Title`에 `PR` 링크를 걸어 리뷰를 할 수 있도록 했어요!
+
+![image](https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/916c44df-d6aa-4856-8cb7-b5bfed528d46)
+
+<br>
+
+* `Pull Request`에서 <u>**리뷰를 제출**</u>하면 슬랙으로 메시지가 와요!
+
+리뷰를 제출하면(`submit`)~
+
+![image](https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/c4d55269-4967-4cdb-8317-96d9b2e0eda9)
+
+슬랙에서 PR 요청한 사람을 멘션하고 누가 리뷰를 달았는지 알려주고 `PR` 링크를 걸어 리뷰를 확인할 수 있도록 했어요!
+
+![image](https://github.com/Two-Potatoes/BobJoying-Back/assets/130378232/95da636c-2f06-4c18-83df-0a4c669cfba5)
+
+---
+
+</details>
+
 <!--배포 후 추가 개선점, 트러블 슈팅 기록, 버전에 따른 기능 기록-->
 
 <br>
 
-## Docker Compose
+## 🐳 Docker Compose
 
 `application.properties`, `docker compose script` 환경변수(`.env`) 설정 후 다음 명령어로 컨테이너에서 프로젝트를 build해볼 수 있어요!
 
